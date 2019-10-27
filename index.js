@@ -14,27 +14,42 @@ var accounts_numbers_verify =
     529808712
 ]
 
-var x = number();
-var y;
+document.getElementById("send_accountnumber").addEventListener("click", number);
 
 
-function number(name) {
-    
+var flag = false;
 
-    var xaccount = document.getElementById("noaccount").value;
-    console.log(xaccount);
-
-    x = xaccount;
-    y = parseFloat(x);
-    
-    if(accounts_numbers_verify.includes(y)) {
-        alert("fkagoae");
-        console.log("eureka");
-        
-    }
-    else if (accounts_numbers_verify.includes(y) == false) {
-        alert ("ay cabron");
-        
-    }
+function start() {
+    flag = true;
 }
+
+
+    function number(name) 
+    {
+
+        if (flag) {
+    
+        var x;
+        var y;
+
+        var xaccount = document.getElementById("noaccount").value;
+        console.log(xaccount);
+    
+        x = xaccount;
+        y = parseFloat(x);
+        
+        if(accounts_numbers_verify.includes(y)) {
+            alert("fkagoae");
+            console.log("eureka");
+            
+        }
+        else if (accounts_numbers_verify.includes(y) == false) {
+            alert ("ay cabron");
+            
+        }
+    }
+    }  
+
+
+
 
