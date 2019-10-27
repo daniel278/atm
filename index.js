@@ -26,9 +26,9 @@ function number()
         
      if(accounts_numbers_verify.includes(y)) 
      {
-         document.getElementById("image").src = "../img/teclado.jpg";
          document.getElementById("text").innerHTML = "Password";
          document.getElementById("noaccount").value = "";
+         document.getElementById("atm").innerHTML = "<img src='../img/teclado.jpg'<div> <p>Pasword</p> <input id='number2' type='number'> <input id='send2' type='button' value='Send'></div>";
         console.log("eureka");
             
     }
