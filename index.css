@@ -1,5 +1,11 @@
+*
+{
+    font-family: 'Roboto', sans-serif;
+}
+
 .dir
 {
+    color: black;
     position: fixed;
     background-color: beige;
     width: 350px;
@@ -8,14 +14,41 @@
     bottom: 0px;
 }
 
+ul
+{
+    padding: 0;
+}
+
+ul a
+{
+    text-decoration: none;
+}
+
+ul a:visited
+{
+    color: black;
+}
+
+ul a:hover
+{
+    color: grey;
+}
+
 .logo
 {
-    margin: 0 20%;
+    margin: 80px 20% 40px 20%;
 }
 
 .logo img
 {
     width: 100%;
+}
+
+.atm, .check, .credit{
+    padding: 35px 0;
+    font-size: 25px;
+    text-align: center;   
+
 }
 
 
