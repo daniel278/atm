@@ -1,0 +1,21 @@
+.dir
+{
+    position: fixed;
+    background-color: beige;
+    width: 350px;
+    height: 100%;
+    left: 0;
+    bottom: 0px;
+}
+
+.logo
+{
+    margin: 0 20%;
+}
+
+.logo img
+{
+    width: 100%;
+}
+
+
