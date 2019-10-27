@@ -26,7 +26,9 @@ function number()
         
      if(accounts_numbers_verify.includes(y)) 
      {
-        alert("fkagoae");
+         document.getElementById("image").src = "../img/teclado.jpg";
+         document.getElementById("text").innerHTML = "Password";
+         document.getElementById("noaccount").value = "";
         console.log("eureka");
             
     }
@@ -34,8 +36,5 @@ function number()
         alert ("there is no this account number in our data base");
     }
 }
-    
-
-
 
 
