@@ -29,7 +29,9 @@ var passwords =
 ]
 
 document.getElementById("send_accountnumber").addEventListener("click", number);
-document.getElementById("noaccount").addEventListener('keypress', function (e) {
+document.getElementById("noaccount").addEventListener('keypress',
+function (e) 
+{
     var key = e.which || e.keyCode;
     if (key === 13) { // 13 is enter
       // code for enter
@@ -39,40 +41,47 @@ document.getElementById("noaccount").addEventListener('keypress', function (e) {
 
 function number() 
 {    
-      var xaccount = document.getElementById("noaccount").value;
-      console.log(xaccount);
+    var xaccount = document.getElementById("noaccount").value;
+    console.log(xaccount);
  
-      x = xaccount;
-      y = parseFloat(x);
-      v = accounts_numbers_verify.indexOf(y);
+    x = xaccount;
+    y = parseFloat(x);
+    v = accounts_numbers_verify.indexOf(y);
         
-     if(accounts_numbers_verify.includes(y)) 
-     {
-         document.getElementById("atm").innerHTML = "<img src='../img/teclado.jpg'<div> <p>Pasword</p> <input id='number2' onclick='problem();' type='number'> <input id='send2' onclick='password();' type='button' value='Send'></div>";
-         console.log("eureka");
+    if(accounts_numbers_verify.includes(y)) 
+    {
+        //the code is for create a new text input and button, because they will do diferrents functions,
+        // than the frist inpust. <p> have onclick, because, I find this way to js detect this <p>, 
+        // before this, add.eventListener don't work  
+        document.getElementById("atm").innerHTML = "<img src='../img/teclado.jpg'<div> <p>Pasword</p> <input id='number2' onclick='problem();' type='number'> <input id='send2' onclick='password();' type='button' value='Send'></div>";
+        console.log("eureka");
 
-         if (accounts_numbers_verify[0] == y) 
-         {
-             z = passwords[0];
-             console.log(z);
-         }
+        if (accounts_numbers_verify[0] == y) 
+        {
+            z = passwords[0];
+            console.log(z);
+        }
             
     }
-        else if (accounts_numbers_verify.includes(y) == false) {
+
+    else if (accounts_numbers_verify.includes(y) == false) 
+    {
         alert ("there is no this account number in our data base");
     }
 }
 
-function problem(params) {
-    
-document.getElementById("number2").addEventListener('keypress', function (e) {
-    var key = e.which || e.keyCode;
-    if (key === 13) { // 13 is enter
-      // code for enter
-      password();
-    }
-});
-
+function problem(params) 
+{
+//number2 is the id of the input put in innerHTML
+document.getElementById("number2").addEventListener('keypress', function (e) 
+    {
+        var key = e.which || e.keyCode;
+        if (key === 13) 
+        { // 13 is enter
+        // code for enter
+        password();
+        }
+    });
 }
 
 function password(params) 
@@ -85,7 +94,10 @@ function password(params)
     {
         console.log("la verga");
         
-    } else {
+    } 
+    
+    else 
+    {
         alert("INCORRECT PASSWORD");
     };
 }
