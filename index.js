@@ -48,7 +48,7 @@ function number()
         
      if(accounts_numbers_verify.includes(y)) 
      {
-         document.getElementById("atm").innerHTML = "<img src='../img/teclado.jpg'<div> <p>Pasword</p> <input id='number2' type='number'> <input id='send2' onclick='password();' type='button' value='Send'></div>";
+         document.getElementById("atm").innerHTML = "<img src='../img/teclado.jpg'<div> <p>Pasword</p> <input id='number2' onclick='problem();' type='number'> <input id='send2' onclick='password();' type='button' value='Send'></div>";
          console.log("eureka");
 
          if (accounts_numbers_verify[0] == y) 
@@ -63,6 +63,8 @@ function number()
     }
 }
 
+function problem(params) {
+    
 document.getElementById("number2").addEventListener('keypress', function (e) {
     var key = e.which || e.keyCode;
     if (key === 13) { // 13 is enter
@@ -70,6 +72,8 @@ document.getElementById("number2").addEventListener('keypress', function (e) {
       password();
     }
 });
+
+}
 
 function password(params) 
 {
