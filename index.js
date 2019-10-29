@@ -1,37 +1,30 @@
-var accounts_numbers_verify = 
-[
-    900800501,
-    632513563,
-    987632125,
-    412898914,
-    418241241,
-    769239537,
-    142984127,
-    142084120,
-    520937851,
-    199014124,
-    936840952,
-]
+//db because data base, that help me to remember
+var dbaccount = [];
+var dbpassword = [];
+var dbbalance = [];
 
-var passwords = 
-[
-    213,
-    214,
-    634,
-    737,
-    373,
-    234,
-    474,
-    846,
-    242,
-    467,
-    145
-]
+function account(noaccount, password, balance) 
+{
+    this.accountNumber = noaccount;
+    this.accountPassword = password;
+    this.accountBalance = balance;
 
-function bill(amount, value) 
+    return dbaccount.push(this.accountNumber) + dbpassword.push(this.accountPassword) + dbbalance.push(this.accountBalance);    
+}
+
+var account0 = new account(900800501, 213, 5000);
+var account1 = new account(912491902, 255, 300);
+var account2 = new account(915392124, 149, 50);
+
+var atmbills = [];
+
+function bill(amount, value, src) 
 {
     this.billAmount = amount;
     this.billValue = value;
+    this.billSrc = src;
+
+    return atmbills.push(this.billValue);
 }
 
 //I want the atm has equity in value of each bill
@@ -58,11 +51,11 @@ function equity(params)
 
 }
 
-var onedollar = new bill(xone, vone);
-var fivedollar = new bill(xfive, vfive);
-var tendollar = new bill (xten, vten);
-var fiftydollar = new bill (xfifty, vfifty);
-var hundreddollar = new bill (xhundred, vhundred);
+var onedollar = new bill(xone, vone, "../img/onedollar.png");
+var fivedollar = new bill(xfive, vfive, "img/onedollar.png");
+var tendollar = new bill (xten, vten, "img/onedollar.png");
+var fiftydollar = new bill (xfifty, vfifty, "img/onedollar.png");
+var hundreddollar = new bill (xhundred, vhundred, "img/onedollar.png");
 
 document.getElementById("send_accountnumber").addEventListener("click", number);
 document.getElementById("noaccount").addEventListener('keypress',
@@ -82,23 +75,16 @@ function number()
  
     x = xaccount;
     y = parseFloat(x);
-    v = accounts_numbers_verify.indexOf(y);
+    v = dbaccount.indexOf(y);
         
-    if(accounts_numbers_verify.includes(y)) 
+    if(dbaccount.includes(y) == true) 
     {
         //the code is for create a new text input and button, because they will do diferrents functions,
         // than the frist inpust. <p> have onclick, because, I find this way to js detect this <p>, 
         // before this, add.eventListener don't work  
         document.getElementById("image").src = "../img/teclado.jpg";
         document.getElementById("atm").innerHTML = "<div id='key'> <p>Pasword</p> <input id='number2' onclick='problem();' type='number'> <input id='send2' onclick='password();' type='button' value='Send'> </div>";
-        console.log("eureka");
-
-        if (accounts_numbers_verify[0] == y) 
-        {
-            z = passwords[0];
-            console.log(z);
-        }
-            
+        console.log("eureka");  
     }
 
     else if (accounts_numbers_verify.includes(y) == false) 
@@ -125,7 +111,7 @@ function password(params)
 {
     pass = document.getElementById("number2").value;
     n = parseFloat(pass);
-    b = passwords.indexOf(n);
+    b = dbpassword.indexOf(n);
 
     if (v == b) 
     {
@@ -152,13 +138,41 @@ document.getElementById("dollar").addEventListener('keypress', function (e)
     });
 }
 
+function sortNumber(a, b) {
+    return b - a;
+  }
+  
+var numArray = [57, 140000, 104, 99];
+numArray.sort(sortNumber);
+atmbills.sort(sortNumber);
+
+
+function giveamount(howmany) {
+    howmany;
+}
+
 function give(params) {
     many = document.getElementById("dollar").value;
 
     if (many%10 == 0) 
     {
-        console.log("good");
+        if (many < dbbalance[v]) 
+        {
+            dbbalance[v] = dbbalance[v] - many;
+            alert("You have retired " + many + " dollars, your balance is " + dbbalance[v]);
+
+            document.getElementById("image").src = onedollar.billSrc;
+            document.getElementById("atm").innerHTML = "Thanks for use our ATM";
+
+
+
             
+        } 
+        
+        else 
+        {
+            alert("You don't have enough money");
+        }            
     }
     
     else
