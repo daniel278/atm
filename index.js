@@ -147,12 +147,22 @@ numArray.sort(sortNumber);
 atmbills.sort(sortNumber);
 
 
-function giveamount(howmany) {
-    howmany;
+function giveamount(params) 
+{
+    givebills = [];
+
+    for (let index = 0; index <= 4; index++) 
+    {
+
+        math0 = parseInt(many/atmbills[index]); //amount of bills        
+        many = many%atmbills[index];
+        givebills.push(math0);
+    }
 }
 
 function give(params) {
     many = document.getElementById("dollar").value;
+    many = parseFloat(many);
 
     if (many%10 == 0) 
     {
@@ -161,11 +171,13 @@ function give(params) {
             dbbalance[v] = dbbalance[v] - many;
             alert("You have retired " + many + " dollars, your balance is " + dbbalance[v]);
 
-            document.getElementById("image").src = onedollar.billSrc;
             document.getElementById("atm").innerHTML = "Thanks for use our ATM";
+            giveamount();
 
+            var image_x = document.getElementById('image');
+            image_x.parentNode.removeChild(image_x);
 
-
+            var givebills document.getElementById("divimage");            
             
         } 
         
