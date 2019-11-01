@@ -17,6 +17,7 @@ var account1 = new account(912491902, 255, 300);
 var account2 = new account(915392124, 149, 50);
 
 var atmbills = [];
+var atmbillsrc = [];
 
 function bill(amount, value, src) 
 {
@@ -24,7 +25,7 @@ function bill(amount, value, src)
     this.billValue = value;
     this.billSrc = src;
 
-    return atmbills.push(this.billValue);
+    return atmbills.push(this.billValue) + atmbillsrc.push(this.billSrc) ;
 }
 
 //I want the atm has equity in value of each bill
@@ -51,11 +52,11 @@ function equity(params)
 
 }
 
+var hundreddollar = new bill (xhundred, vhundred, "../img/hundreddollar.png");
+var fiftydollar = new bill (xfifty, vfifty, "../img/fiftydollar.png");
+var tendollar = new bill (xten, vten, "../img/tendollar.png");
+var fivedollar = new bill(xfive, vfive, "../img/fivedollar.png");
 var onedollar = new bill(xone, vone, "../img/onedollar.png");
-var fivedollar = new bill(xfive, vfive, "img/onedollar.png");
-var tendollar = new bill (xten, vten, "img/onedollar.png");
-var fiftydollar = new bill (xfifty, vfifty, "img/onedollar.png");
-var hundreddollar = new bill (xhundred, vhundred, "img/onedollar.png");
 
 document.getElementById("send_accountnumber").addEventListener("click", number);
 document.getElementById("noaccount").addEventListener('keypress',
@@ -146,10 +147,10 @@ var numArray = [57, 140000, 104, 99];
 numArray.sort(sortNumber);
 atmbills.sort(sortNumber);
 
+var givebills = [];
 
 function giveamount(params) 
 {
-    givebills = [];
 
     for (let index = 0; index <= 4; index++) 
     {
@@ -175,10 +176,49 @@ function give(params) {
             giveamount();
 
             var image_x = document.getElementById('image');
-            image_x.parentNode.removeChild(image_x);
+            image_x.parentNode.removeChild(image_x);            
 
-            var givebills document.getElementById("divimage");            
-            
+            function repeatbill() 
+            {
+                var givebill = document.getElementById("divimage");     
+                for (i = 0; i < givebills[0]; i++)
+                {
+                    console.log("hola ");
+                    
+                    givebill.innerHTML += "<img src= '" + atmbillsrc[0] + "' width='300px'>" ;
+                }
+                
+                for (i = 0; i < givebills[1]; i++)
+                {
+                    console.log("hola ");
+                    
+                    givebill.innerHTML += "<img src= '" + atmbillsrc[1] + "' width='300px'>" ;
+                }
+                for (i = 0; i < givebills[2]; i++)
+                {
+                    console.log("hola ");
+                    
+                    givebill.innerHTML += "<img src= '" + atmbillsrc[2] + "' width='300px'>" ;
+                }
+                for (i = 0; i < givebills[3]; i++)
+                {
+                    console.log("hola ");
+                    
+                    givebill.innerHTML += "<img src= '" + atmbillsrc[3] + "' width='300px'>" ;
+                }
+                for (i = 0; i < givebills[4]; i++)
+                {
+                    console.log("hola ");
+                    
+                    givebill.innerHTML += "<img src= '" + atmbillsrc[4] + "' width='300px'>" ;
+                }
+
+            }
+
+            repeatbill();
+
+            //givebills.innerHTML = "<img>" +  "grr";
+
         } 
         
         else 
