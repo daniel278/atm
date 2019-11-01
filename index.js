@@ -88,7 +88,7 @@ function number()
         console.log("eureka");  
     }
 
-    else if (accounts_numbers_verify.includes(y) == false) 
+    else if (dbaccount.includes(y) == false) 
     {
         alert ("there is no this account number in our data base");
     }
